@@ -115,7 +115,7 @@ function Order(): ReactElement {
     const navigate = useNavigate();
 
     const goBack = () => {
-        navigate(-1);
+        navigate('/');
     };
 
     return (
