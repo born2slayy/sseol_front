@@ -1,9 +1,13 @@
 import { ReactElement } from "react";
+import { Link } from "react-router-dom";
 //https://v0.dev/t/PEpY7siw0Ll
 //lower part
 function SearchSection(): ReactElement {
     return (
         <>
+            <Link to='/result'>
+                <button>tmp</button>
+            </Link>
         </>
     );
 }
@@ -19,7 +23,7 @@ function SelectSection(): ReactElement {
 function Landing(): ReactElement {
     return (
         <>
-            <SearchSection />
+            <SelectSection />
             <SearchSection />
         </>
     );
