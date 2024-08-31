@@ -88,8 +88,8 @@ function Result(): ReactElement {
 
 const cardDataList: CardProps[] = [
     {
-        img1URL: "",
-        img2URL: "",
+        img1URL: "https://via.placeholder.com/400x300?text=Acme+Fashion+1",
+        img2URL: "https://via.placeholder.com/400x300?text=Acme+Fashion+2",
         name: 'Acme Fashion',
         location: 'New York, USA',
         revenue: '100M - 500M',
@@ -98,8 +98,8 @@ const cardDataList: CardProps[] = [
         pageID: 'acme-fashion-ny',
     },
     {
-        img1URL: "",
-        img2URL: "",
+        img1URL: "https://via.placeholder.com/400x300?text=Stylish+Designs+1",
+        img2URL: "https://via.placeholder.com/400x300?text=Stylish+Designs+2",
         name: 'Stylish Designs',
         location: 'London, UK',
         revenue: '50M - 100M',
@@ -108,8 +108,8 @@ const cardDataList: CardProps[] = [
         pageID: 'stylish-designs-london',
     },
     {
-        img1URL: "",
-        img2URL: "",
+        img1URL: "https://via.placeholder.com/400x300?text=Trendy+Threads+1",
+        img2URL: "https://via.placeholder.com/400x300?text=Trendy+Threads+2",
         name: 'Trendy Threads',
         location: 'Paris, France',
         revenue: '500M - 1B',
@@ -118,8 +118,8 @@ const cardDataList: CardProps[] = [
         pageID: 'trendy-threads-paris',
     },
     {
-        img1URL: "",
-        img2URL: "",
+        img1URL: "https://via.placeholder.com/400x300?text=Chic+Boutique+1",
+        img2URL: "https://via.placeholder.com/400x300?text=Chic+Boutique+2",
         name: 'Chic Boutique',
         location: 'Milan, Italy',
         revenue: '20M - 50M',
@@ -128,8 +128,8 @@ const cardDataList: CardProps[] = [
         pageID: 'chic-boutique-milan',
     },
     {
-        img1URL: "",
-        img2URL: "",
+        img1URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
+        img2URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
         name: 'Elegant Essentials',
         location: 'Tokyo, Japan',
         revenue: '100M - 500M',
@@ -138,8 +138,8 @@ const cardDataList: CardProps[] = [
         pageID: 'elegant-essentials-tokyo-1',
     },
     {
-        img1URL: "",
-        img2URL: "",
+        img1URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
+        img2URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
         name: 'Elegant Essentials',
         location: 'Tokyo, Japan',
         revenue: '100M - 500M',
@@ -148,8 +148,8 @@ const cardDataList: CardProps[] = [
         pageID: 'elegant-essentials-tokyo-2',
     },
     {
-        img1URL: "",
-        img2URL: "",
+        img1URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
+        img2URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
         name: 'Elegant Essentials',
         location: 'Tokyo, Japan',
         revenue: '100M - 500M',
@@ -158,8 +158,8 @@ const cardDataList: CardProps[] = [
         pageID: 'elegant-essentials-tokyo-3',
     },
     {
-        img1URL: "",
-        img2URL: "",
+        img1URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
+        img2URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
         name: 'Elegant Essentials',
         location: 'Tokyo, Japan',
         revenue: '100M - 500M',
@@ -168,8 +168,8 @@ const cardDataList: CardProps[] = [
         pageID: 'elegant-essentials-tokyo-4',
     },
     {
-        img1URL: "",
-        img2URL: "",
+        img1URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
+        img2URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
         name: 'Elegant Essentials',
         location: 'Tokyo, Japan',
         revenue: '100M - 500M',
@@ -178,8 +178,8 @@ const cardDataList: CardProps[] = [
         pageID: 'elegant-essentials-tokyo-5',
     },
     {
-        img1URL: "",
-        img2URL: "",
+        img1URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
+        img2URL: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
         name: 'Elegant Essentials',
         location: 'Tokyo, Japan',
         revenue: '100M - 500M',
@@ -188,6 +188,7 @@ const cardDataList: CardProps[] = [
         pageID: 'elegant-essentials-tokyo-6',
     },
 ];
+
 
 
 
