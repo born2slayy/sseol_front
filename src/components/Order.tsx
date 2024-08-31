@@ -119,11 +119,11 @@ function Order(): ReactElement {
     };
 
     return (
-        <div className="p-8">
+        <div className="flex flex-col items-center">
             <OrderCards />
             <button 
                 onClick={goBack} 
-                className="w-1/4 mt-8 bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800 transition duration-300"
+                className="w-1/2 mt-8 mb-8 bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800 transition duration-300"
             >
                 Go Back to Search
             </button>
