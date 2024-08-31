@@ -12,7 +12,7 @@ function App(): ReactElement {
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/loading' element={<Loading />} />
-        <Route path='/order' element={<Order />} />
+        <Route path='/order/:pageID' element={<Order />} />
         <Route path='/result' element={<Result />} />
       </Routes>
     </Router>
