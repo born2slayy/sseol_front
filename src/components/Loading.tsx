@@ -1,4 +1,5 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoadingSpinner(): ReactElement {
     return (
@@ -21,6 +22,16 @@ function LoadingSpinner(): ReactElement {
 }
 
 function Loading(): ReactElement {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            navigate('/result');
+        }, 3000);
+        
+        return (() => clearTimeout(timer));
+    }, [navigate]);
+
     return (
         <div className="flex items-center justify-center h-screen bg-white">
           <div className="flex flex-col items-center justify-center">
