@@ -4,6 +4,7 @@ import Landing from './components/Landing';
 import Loading from './components/Loading';
 import Order from './components/Order';
 import Result from './components/Result';
+import './index.css';
 
 function App(): ReactElement {
   return (
