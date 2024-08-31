@@ -57,7 +57,7 @@ function ImageSlider({imgURLs}: ImageSliderProps): ReactElement {
             <Slider {...settings} >
                 {imgURLs.map((url: string, index: number): ReactElement => (
                     <div key={index}>
-                        <img src={url} alt='slide' className="w-full h-64 object-cover rounded-md" />
+                        <img src={url} alt='slide' className="w-full h-96 object-cover rounded-md" />
                     </div>
                 ))}
             </Slider>
@@ -69,7 +69,7 @@ function OrderCard(props: OrderCardProps): ReactElement {
     const counterSet: CounterSet = useCounter();
 
     return (
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-white p-4 rounded-lg shadow-md h-full min-h-[500px]">
             <ImageSlider imgURLs={props.imgURLs} />
             <h3 className="text-xl font-bold text-center mt-4">{props.name}</h3>
             <p className="text-center text-gray-500 mb-4">{props.code}</p>
@@ -102,7 +102,7 @@ function OrderCard(props: OrderCardProps): ReactElement {
 
 function OrderCards(): ReactElement {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-10 ml-20 mr-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {orderCardData.map((data: OrderCardProps, index: number): ReactElement => (
                 <OrderCard key={index} {...data} />
             ))}
