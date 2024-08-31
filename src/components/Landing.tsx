@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function SearchSection(): ReactElement {
     return (
         <>
-            <Link to='/result'>
+            <Link to='/loading'>
                 <button>tmp</button>
             </Link>
         </>
