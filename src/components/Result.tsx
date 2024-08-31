@@ -24,13 +24,21 @@ interface CardProps {
 function Card(props: CardProps): ReactElement {
     return (
         <div className="bg-white p-6 rounded-lg shadow-lg">
-            <img src={props.img1URL} alt={props.img1URL} className="w-full h-32 object-cover rounded-md mb-4" />
+            <img 
+                src={props.img1URL} 
+                alt={props.img1URL} 
+                className="w-full h-32 object-cover rounded-md mb-4" 
+            />
             <h3 className="text-xl font-bold text-gray-800 mb-2">{props.name}</h3>
             <p className="text-gray-600 mb-2">{props.location}</p>
             <p className="text-gray-600 mb-2">Revenue: {props.revenue}</p>
             <p className="text-gray-600 mb-2">Price Range: {props.price}</p>
             <p className="text-gray-600 mb-4">Category: {props.category}</p>
-            <img src={props.img2URL} alt={props.img2URL} className="w-full h-32 object-cover rounded-md mb-4" />
+            <img 
+                src={props.img2URL} 
+                alt={props.img2URL} 
+                className="w-full h-80 object-cover rounded-md mb-4" 
+            />
             <Link to={`/order/${props.pageID}`}>
                 <button className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
                     Add to Cart
@@ -39,6 +47,7 @@ function Card(props: CardProps): ReactElement {
         </div>
     );
 }
+
 
 function Cards({search}: CardsProps): ReactElement {
     const pattern: RegExp = new RegExp(search, 'i');
