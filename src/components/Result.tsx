@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 import useInput, { InputState } from "../tools/useInput";
 import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 
 interface SearchBarProps {
     searchState: InputState,
@@ -39,9 +40,10 @@ function Card(props: CardProps): ReactElement {
                 alt={props.img2URL} 
                 className="w-full h-80 object-cover rounded-md mb-4" 
             />
-            <Link to={`/order/${props.pageID}`}>
-                <button className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
-                    Add to Cart
+            <Link to={`/order/${props.pageID}`} className="w-full">
+                <button className="flex items-center justify-center bg-white border border-gray-300 rounded-md p-2 hover:bg-gray-100 transition duration-300">
+                    <FaShoppingCart size={20} color="black" />
+                    <span className="ml-2">Add to Cart</span>
                 </button>
             </Link>
         </div>
