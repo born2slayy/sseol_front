@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import useCounter, { CounterSet } from "../tools/useCounter";
 import { FaShoppingCart } from 'react-icons/fa';
 
+//design: https://v0.dev/t/alUG20X5HZM
+
 interface OrderCardProps {
     imgURLs: string[],
     name: string,

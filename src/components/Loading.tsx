@@ -1,6 +1,8 @@
 import { ReactElement, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+//design: https://v0.dev/t/OoUVupeFpge
+
 function LoadingSpinner(): ReactElement {
     return (
         <div className="relative w-20 h-20">
@@ -28,7 +30,7 @@ function Loading(): ReactElement {
         const timer = setTimeout(() => {
             navigate('/result');
         }, 3000);
-        
+
         return (() => clearTimeout(timer));
     }, [navigate]);
 

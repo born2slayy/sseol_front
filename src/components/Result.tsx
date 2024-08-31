@@ -3,6 +3,8 @@ import useInput, { InputState } from "../tools/useInput";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 
+//design: https://v0.dev/r/prIHE5fgaNv
+
 interface SearchBarProps {
     searchState: InputState,
 }
