@@ -71,7 +71,7 @@ function SelectSection({ onSelect }: { onSelect: (value: string, index: number) 
                         <div className="grid grid-cols-2 gap-4">
                             <SelectBar
                                 label="HQ Location"
-                                options={["United States", "United Kingdom", "Italy", "France", "Germany", "korea"]}
+                                options={["South Korea", "France", "United States", "Canada", "Japan", "Italy", "United Kingdom", "Germany", "Spain", "China", "Australia", "Brazil", "India", "Russia", "Sweden", "Denmark", "Netherlands", "Belgium", "Switzerland", "Norway"]}
                                 onChange={(value) => onSelect(value, 0)}
                             />
                             <SelectBar
