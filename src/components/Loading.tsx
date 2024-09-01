@@ -1,9 +1,7 @@
 import { ReactElement, useEffect } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import useSearchAPI, { SearchApiProps } from "../api/useSearchAPI";
 import { cardDataList } from "../tools/testData";
 import { useNavigate, useLocation } from "react-router-dom"; // useLocation 추가
-import { SearchApiProps } from "../api/useSearchAPI";
+import useSearchAPI, { SearchApiProps } from "../api/useSearchAPI";
 
 //design: https://v0.dev/t/OoUVupeFpge
 
@@ -30,49 +28,49 @@ function LoadingSpinner(): ReactElement {
 function Loading(): ReactElement {
     const navigate = useNavigate();
     const location = useLocation();
+    
     const inputs: SearchApiProps = location.state!;
-    // const {data, loading, error} = useSearchAPI(inputs);
-
-    // if (loading) {
-    //     return (
-    //         <div className="flex items-center justify-center h-screen bg-white">
-    //           <div className="flex flex-col items-center justify-center">
-    //             <LoadingSpinner />
-    //             <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
-    //           </div>
-    //         </div>
-    //     );
-    // }
-    // else if (error) {
-    //     console.error(error);
-    //     return (<></>);
-    // }
-    // else {
-    //     navigate('/result', {state: data});
-    //     return (<></>);
-    // }
-
-    // 전달된 데이터를 콘솔에 로깅
-    useEffect(() => {
-        if (location.state) {
-            console.log("Received data:", location.state);
-        }
-
-        const timer = setTimeout(() => {
-            navigate('/result', {state: cardDataList});
-        }, 3000);
-
-        return (() => clearTimeout(timer));
-    }, [location.state, navigate]);
-
-    return (
-        <div className="flex items-center justify-center h-screen bg-white">
-            <div className="flex flex-col items-center justify-center">
+    const {data, loading, error} = useSearchAPI(inputs);
+    console.log(inputs);
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center h-screen bg-white">
+              <div className="flex flex-col items-center justify-center">
                 <LoadingSpinner />
                 <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
+              </div>
             </div>
-        </div>
-    );
+        );
+    }
+    else if (error) {
+        console.error(error);
+        return (<></>);
+    }
+    else {
+        navigate('/result', {state: data});
+        return (<></>);
+    }
+
+    // useEffect(() => {
+    //     if (location.state) {
+    //         console.log("Received data:", location.state);
+    //     }
+
+    //     const timer = setTimeout(() => {
+    //         navigate('/result', {state: cardDataList});
+    //     }, 3000);
+
+    //     return (() => clearTimeout(timer));
+    // }, [location.state, navigate]);
+
+    // return (
+    //     <div className="flex items-center justify-center h-screen bg-white">
+    //         <div className="flex flex-col items-center justify-center">
+    //             <LoadingSpinner />
+    //             <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
+    //         </div>
+    //     </div>
+    // );
 }
 
 export default Loading;
