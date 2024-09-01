@@ -2,6 +2,8 @@ import { ReactElement, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import useSearchAPI, { SearchApiProps } from "../api/useSearchAPI";
 import { cardDataList } from "../tools/testData";
+import { useNavigate, useLocation } from "react-router-dom"; // useLocation 추가
+import { SearchApiProps } from "../api/useSearchAPI";
 
 //design: https://v0.dev/t/OoUVupeFpge
 
@@ -50,20 +52,25 @@ function Loading(): ReactElement {
     //     return (<></>);
     // }
 
+    // 전달된 데이터를 콘솔에 로깅
     useEffect(() => {
+        if (location.state) {
+            console.log("Received data:", location.state);
+        }
+
         const timer = setTimeout(() => {
             navigate('/result', {state: cardDataList});
         }, 3000);
 
         return (() => clearTimeout(timer));
-    }, [navigate]);
+    }, [location.state, navigate]);
 
     return (
         <div className="flex items-center justify-center h-screen bg-white">
-          <div className="flex flex-col items-center justify-center">
-            <LoadingSpinner />
-            <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
-          </div>
+            <div className="flex flex-col items-center justify-center">
+                <LoadingSpinner />
+                <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
+            </div>
         </div>
     );
 }
