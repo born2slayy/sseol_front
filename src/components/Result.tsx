@@ -57,18 +57,19 @@ function Card(props: CardProps): ReactElement {
     );
 }
 
-function Cards({search, data}: CardsProps): ReactElement {
+function Cards({ search, data }: CardsProps): ReactElement {
     const pattern: RegExp = new RegExp(search, 'i');
-    // const dataList = cardDataList;
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div 
+            className="grid gap-6" 
+            style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))' }}
+        >
             {data
                 .filter(cardData => pattern.test(cardData.brandName))
                 .map((cardData: CardProps, index: number): ReactElement => (
                     <Card key={index} {...cardData} />
-                )
-            )}
+                ))}
         </div>
     );
 }
