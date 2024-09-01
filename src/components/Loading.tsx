@@ -1,6 +1,7 @@
 import { ReactElement, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import useSearchAPI, { SearchApiProps } from "../api/useSearchAPI";
+import { cardDataList } from "../tools/testData";
 
 //design: https://v0.dev/t/OoUVupeFpge
 
@@ -28,43 +29,43 @@ function Loading(): ReactElement {
     const navigate = useNavigate();
     const location = useLocation();
     const inputs: SearchApiProps = location.state!;
-    const {data, loading, error} = useSearchAPI(inputs);
+    // const {data, loading, error} = useSearchAPI(inputs);
 
-    if (loading) {
-        return (
-            <div className="flex items-center justify-center h-screen bg-white">
-              <div className="flex flex-col items-center justify-center">
-                <LoadingSpinner />
-                <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
-              </div>
-            </div>
-        );
-    }
-    else if (error) {
-        console.error(error);
-        return (<></>);
-    }
-    else {
-        navigate('/result', {state: data});
-        return (<></>);
-    }
+    // if (loading) {
+    //     return (
+    //         <div className="flex items-center justify-center h-screen bg-white">
+    //           <div className="flex flex-col items-center justify-center">
+    //             <LoadingSpinner />
+    //             <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
+    //           </div>
+    //         </div>
+    //     );
+    // }
+    // else if (error) {
+    //     console.error(error);
+    //     return (<></>);
+    // }
+    // else {
+    //     navigate('/result', {state: data});
+    //     return (<></>);
+    // }
 
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         navigate('/result');
-    //     }, 3000);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            navigate('/result', {state: cardDataList});
+        }, 3000);
 
-    //     return (() => clearTimeout(timer));
-    // }, [navigate]);
+        return (() => clearTimeout(timer));
+    }, [navigate]);
 
-    // return (
-    //     <div className="flex items-center justify-center h-screen bg-white">
-    //       <div className="flex flex-col items-center justify-center">
-    //         <LoadingSpinner />
-    //         <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
-    //       </div>
-    //     </div>
-    // );
+    return (
+        <div className="flex items-center justify-center h-screen bg-white">
+          <div className="flex flex-col items-center justify-center">
+            <LoadingSpinner />
+            <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
+          </div>
+        </div>
+    );
 }
 
 export default Loading;
