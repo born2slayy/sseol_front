@@ -90,7 +90,7 @@ export const cardDataList: SearchApiResponse = {
         {
             brandName: 'Acme Fashion',
             brandLogo: "https://via.placeholder.com/400x300?text=Acme+Fashion+1",
-            url2: "https://via.placeholder.com/400x300?text=Acme+Fashion+2",
+            firstProductImg: "https://via.placeholder.com/400x300?text=Acme+Fashion+2",
             location: 'New York, USA',
             revenue: '100M - 500M',
             priceRange: '$50 - $500',
@@ -99,7 +99,7 @@ export const cardDataList: SearchApiResponse = {
         {
             brandName: 'Stylish Designs',
             brandLogo: "https://via.placeholder.com/400x300?text=Stylish+Designs+1",
-            url2: "https://via.placeholder.com/400x300?text=Stylish+Designs+2",
+            firstProductImg: "https://via.placeholder.com/400x300?text=Stylish+Designs+2",
             location: 'London, UK',
             revenue: '50M - 100M',
             priceRange: '$30 - $300',
@@ -108,7 +108,7 @@ export const cardDataList: SearchApiResponse = {
         {
             brandName: 'Trendy Threads',
             brandLogo: "https://via.placeholder.com/400x300?text=Trendy+Threads+1",
-            url2: "https://via.placeholder.com/400x300?text=Trendy+Threads+2",
+            firstProductImg: "https://via.placeholder.com/400x300?text=Trendy+Threads+2",
             location: 'Paris, France',
             revenue: '500M - 1B',
             priceRange: '$80 - $800',
@@ -117,7 +117,7 @@ export const cardDataList: SearchApiResponse = {
         {
             brandName: 'Chic Boutique',
             brandLogo: "https://via.placeholder.com/400x300?text=Chic+Boutique+1",
-            url2: "https://via.placeholder.com/400x300?text=Chic+Boutique+2",
+            firstProductImg: "https://via.placeholder.com/400x300?text=Chic+Boutique+2",
             location: 'Milan, Italy',
             revenue: '20M - 50M',
             priceRange: '$40 - $400',
@@ -126,7 +126,7 @@ export const cardDataList: SearchApiResponse = {
         {
             brandName: 'Elegant Essentials',
             brandLogo: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
-            url2: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
+            firstProductImg: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
             location: 'Tokyo, Japan',
             revenue: '100M - 500M',
             priceRange: '$60 - $600',
@@ -135,7 +135,7 @@ export const cardDataList: SearchApiResponse = {
         {
             brandName: 'Elegant Essentials',
             brandLogo: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
-            url2: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
+            firstProductImg: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
             location: 'Tokyo, Japan',
             revenue: '100M - 500M',
             priceRange: '$60 - $600',
@@ -144,7 +144,7 @@ export const cardDataList: SearchApiResponse = {
         {
             brandName: 'Elegant Essentials',
             brandLogo: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
-            url2: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
+            firstProductImg: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
             location: 'Tokyo, Japan',
             revenue: '100M - 500M',
             priceRange: '$60 - $600',
@@ -153,7 +153,7 @@ export const cardDataList: SearchApiResponse = {
         {
             brandName: 'Elegant Essentials',
             brandLogo: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
-            url2: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
+            firstProductImg: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
             location: 'Tokyo, Japan',
             revenue: '100M - 500M',
             priceRange: '$60 - $600',
@@ -162,7 +162,7 @@ export const cardDataList: SearchApiResponse = {
         {
             brandName: 'Elegant Essentials',
             brandLogo: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
-            url2: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
+            firstProductImg: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
             location: 'Tokyo, Japan',
             revenue: '100M - 500M',
             priceRange: '$60 - $600',
@@ -171,7 +171,7 @@ export const cardDataList: SearchApiResponse = {
         {
             brandName: 'Elegant Essentials',
             brandLogo: "https://via.placeholder.com/400x300?text=Elegant+Essentials+1",
-            url2: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
+            firstProductImg: "https://via.placeholder.com/400x300?text=Elegant+Essentials+2",
             location: 'Tokyo, Japan',
             revenue: '100M - 500M',
             priceRange: '$60 - $600',

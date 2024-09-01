@@ -19,7 +19,7 @@ interface CardsProps {
 export interface CardProps {
     brandName: string,
     brandLogo: string, //url
-    url2: string, //url
+    firstProductImg: string, //url
     location: string,
     revenue: string,
     priceRange: string,
@@ -57,9 +57,9 @@ function Card(props: CardProps): ReactElement {
 
 function Cards({search}: CardsProps): ReactElement {
     const pattern: RegExp = new RegExp(search, 'i');
-    // const location = useLocation();
-    // const dataList: SearchApiResponse = location.state!;
-    const dataList = cardDataList;
+    const location = useLocation();
+    const dataList: SearchApiResponse = location.state!;
+    // const dataList = cardDataList;
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
