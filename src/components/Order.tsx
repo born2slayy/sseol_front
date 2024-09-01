@@ -4,12 +4,11 @@ import Slider from "react-slick";
 import useCounter, { CounterSet } from "../tools/useCounter";
 import { FaShoppingCart } from 'react-icons/fa';
 import useContractAPI, { ContractApiOut, ContractApiResponse } from "../api/useContractAPI";
-import { orderCardData } from "../tools/testData";
 
 //design: https://v0.dev/t/alUG20X5HZM
 
 export interface OrderCardProps {
-    productImages: string[],
+    productImgs: string[],
     productName: string,
     productCode: string,
     wholesalePrice: number,
@@ -22,6 +21,10 @@ interface CounterProps {
 
 interface ImageSliderProps {
     imgURLs: string[],
+}
+
+interface OrderCardsProps {
+    data: ContractApiResponse,
 }
 
 function Counter({ counterSet }: CounterProps): ReactElement {
@@ -56,6 +59,7 @@ function ImageSlider({imgURLs}: ImageSliderProps): ReactElement {
         autoplaySpeed: 3000,
     };
 
+    console.log("imgURLs:", imgURLs);
     return (
         <div className="mb-10">
             <Slider {...settings} >
@@ -71,10 +75,10 @@ function ImageSlider({imgURLs}: ImageSliderProps): ReactElement {
 
 function OrderCard(props: OrderCardProps): ReactElement {
     const counterSet: CounterSet = useCounter();
-
+    console.log("OrderCard:", props);
     return (
         <div className="bg-white p-4 rounded-lg shadow-md h-full min-h-[500px]">
-            <ImageSlider imgURLs={props.productImages} />
+            <ImageSlider imgURLs={props.productImgs} />
             <h3 className="text-xl font-bold text-center mt-4">{props.productName}</h3>
             <p className="text-center text-gray-500 mb-4">{props.productCode}</p>
             <div className="flex justify-center space-x-2 mb-4">
@@ -104,10 +108,12 @@ function OrderCard(props: OrderCardProps): ReactElement {
     );
 }
 
-function OrderCards(props: ContractApiResponse): ReactElement {
+function OrderCards({data}: OrderCardsProps): ReactElement {
+    console.log("OrderCards:", data);
+
     return (
         <div className="mt-10 ml-20 mr-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {props.items.map((data: OrderCardProps, index: number): ReactElement => (
+            {data.map((data: OrderCardProps, index: number): ReactElement => (
                 <OrderCard key={index} {...data} />
             ))}
         </div>
@@ -127,7 +133,10 @@ function Order(): ReactElement {
         return (<></>);
     }
     const dataList: ContractApiResponse = data.data!;
-    
+    console.log('dataList:', dataList);
+    console.log("[0]:", dataList[0]);
+    console.log("[0]:", dataList[1]);
+    console.log("[0]:", dataList[2]);
     // const dataList:ContractApiResponse = orderCardData;
     const goBack = () => {
         navigate('/');
@@ -135,7 +144,7 @@ function Order(): ReactElement {
 
     return (
         <div className="flex flex-col items-center">
-            <OrderCards {...dataList}/>
+            <OrderCards data={dataList}/>
             <button 
                 onClick={goBack} 
                 className="w-1/2 mt-8 mb-8 bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800 transition duration-300"

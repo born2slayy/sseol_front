@@ -1,5 +1,4 @@
 import { ReactElement, useEffect } from "react";
-import { cardDataList } from "../tools/testData";
 import { useNavigate, useLocation } from "react-router-dom"; // useLocation 추가
 import useSearchAPI, { SearchApiProps } from "../api/useSearchAPI";
 

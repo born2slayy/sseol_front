@@ -3,7 +3,6 @@ import useInput, { InputState } from "../tools/useInput";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import useContractAPI, { ContractApiOut } from "../api/useContractAPI";
-import { cardDataList } from "../tools/testData";
 import { SearchApiResponse } from "../api/useSearchAPI";
 
 //design: https://v0.dev/r/prIHE5fgaNv

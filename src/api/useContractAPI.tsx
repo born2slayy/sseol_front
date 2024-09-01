@@ -6,15 +6,15 @@ export interface ContractApiProps {
     brandName: string,
 }
 
-export interface ContractApiResponse {
-    items: {
-        productName: string,
-        productCode: string,
-        suggestedRetail: number,
-        wholesalePrice: number,
-        productImages: string[],
-    }[],
+export interface ContractItem {
+    productName: string,
+    productCode: string,
+    suggestedRetail: number,
+    wholesalePrice: number,
+    productImgs: string[],
 }
+
+export type ContractApiResponse = ContractItem[];
 
 export interface ContractApiOut {
     loading: boolean,
@@ -43,10 +43,9 @@ function useContractAPI(props: ContractApiProps): ContractApiOut {
             }
         };
         apiCall();
-    }, [props]);
+    }, [props.brandName]);
 
     return {data, loading, error};
-
 }
 
 export default useContractAPI;
