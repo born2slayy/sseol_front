@@ -78,19 +78,19 @@ function OrderCard(props: OrderCardProps): ReactElement {
             <h3 className="text-xl font-bold text-center mt-4">{props.productName}</h3>
             <p className="text-center text-gray-500 mb-4">{props.productCode}</p>
             <div className="flex justify-center space-x-2 mb-4">
-                <button className="w-8 h-8 bg-gray-200 rounded-full focus:outline-none" />
-                <button className="w-8 h-8 bg-gray-200 rounded-full focus:outline-none" />
-                <button className="w-8 h-8 bg-gray-200 rounded-full focus:outline-none" />
+                <button className="w-4 h-4 bg-pink-100 focus:outline-none" />
+                <button className="w-4 h-4 bg-pink-200 focus:outline-none" />
+                <button className="w-4 h-4 bg-pink-300 focus:outline-none" />
             </div>
             <div className="text-center mb-4">
                 <div className="flex justify-between text-gray-600">
                     <div className="flex flex-col items-center">
                         <label className="mb-1 font-medium">Wholesale</label>
-                        <span className="text-lg font-semibold">{props.wholesalePrice}</span>
+                        <span className="text-lg font-semibold">{props.wholesalePrice.toFixed(2)}</span>
                     </div>
                     <div className="flex flex-col items-center">
                         <label className="mb-1 font-medium">Suggested Retail</label>
-                        <span className="text-lg font-semibold">{props.suggestedRetail}</span>
+                        <span className="text-lg font-semibold">{props.suggestedRetail.toFixed(2)}</span>
                     </div>
                 </div>
             </div>

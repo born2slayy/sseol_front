@@ -10,16 +10,18 @@ import { SearchApiResponse } from "../api/useSearchAPI";
 
 interface SearchBarProps {
     searchState: InputState,
+    solarOutput: string,
 }
 
 interface CardsProps {
     search: string,
+    data: CardProps[],
 }
 
 export interface CardProps {
     brandName: string,
     brandLogo: string, //url
-    url2: string, //url
+    firstProductImg: string, //url
     location: string,
     revenue: string,
     priceRange: string,
@@ -55,42 +57,48 @@ function Card(props: CardProps): ReactElement {
     );
 }
 
-function Cards({search}: CardsProps): ReactElement {
+function Cards({ search, data }: CardsProps): ReactElement {
     const pattern: RegExp = new RegExp(search, 'i');
-    // const location = useLocation();
-    // const dataList: SearchApiResponse = location.state!;
-    const dataList = cardDataList;
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            {dataList.brands
+        <div 
+            className="grid gap-6" 
+            style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))' }}
+        >
+            {data
                 .filter(cardData => pattern.test(cardData.brandName))
                 .map((cardData: CardProps, index: number): ReactElement => (
                     <Card key={index} {...cardData} />
-                )
-            )}
+                ))}
         </div>
     );
 }
 
-function SearchBar({ searchState }: SearchBarProps): ReactElement {
+function SearchBar({ searchState, solarOutput }: SearchBarProps): ReactElement {
     return (
-        <input
-            placeholder="Search for brands..."
-            onChange={searchState.handler}
-            className="w-full p-4 mb-6 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+        <div className="mb-4">
+            <input
+                placeholder="Search for brands..."
+                onChange={searchState.handler}
+                className="w-full p-4 mb-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <p className="text-lg font-normal text-gray-400">
+                {solarOutput}
+            </p>
+        </div>
     );
 }
 
 function Result(): ReactElement {
     const searchState: InputState = useInput("");
+    const location = useLocation();
+    const data: SearchApiResponse = location.state!;
 
     return (
         <div className="mt-10 mb-10 ml-20 mr-20 p-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-6">Fashion Brand Search</h1>
-            <SearchBar searchState={searchState} />
-            <Cards search={searchState.state}/>
+            <SearchBar searchState={searchState} solarOutput={data.solarOutput} />
+            <Cards search={searchState.state} data={data.brands} />
         </div>
     );
 }

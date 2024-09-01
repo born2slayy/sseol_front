@@ -1,4 +1,7 @@
 import { ReactElement, useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import useSearchAPI, { SearchApiProps } from "../api/useSearchAPI";
+import { cardDataList } from "../tools/testData";
 import { useNavigate, useLocation } from "react-router-dom"; // useLocation 추가
 import { SearchApiProps } from "../api/useSearchAPI";
 
@@ -26,7 +29,28 @@ function LoadingSpinner(): ReactElement {
 
 function Loading(): ReactElement {
     const navigate = useNavigate();
-    const location = useLocation(); // useLocation 추가
+    const location = useLocation();
+    const inputs: SearchApiProps = location.state!;
+    // const {data, loading, error} = useSearchAPI(inputs);
+
+    // if (loading) {
+    //     return (
+    //         <div className="flex items-center justify-center h-screen bg-white">
+    //           <div className="flex flex-col items-center justify-center">
+    //             <LoadingSpinner />
+    //             <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
+    //           </div>
+    //         </div>
+    //     );
+    // }
+    // else if (error) {
+    //     console.error(error);
+    //     return (<></>);
+    // }
+    // else {
+    //     navigate('/result', {state: data});
+    //     return (<></>);
+    // }
 
     // 전달된 데이터를 콘솔에 로깅
     useEffect(() => {
@@ -35,7 +59,7 @@ function Loading(): ReactElement {
         }
 
         const timer = setTimeout(() => {
-            navigate('/result');
+            navigate('/result', {state: cardDataList});
         }, 3000);
 
         return (() => clearTimeout(timer));
