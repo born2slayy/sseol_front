@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/search",
+      "destination": "https://43.202.147.65:8000/search"
+    },
+    {
+      "source": "/brands/contract",
+      "destination": "https://43.202.147.65:8000/brands/contract"
+    }
+  ]
+}
