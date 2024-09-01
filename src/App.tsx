@@ -11,7 +11,7 @@ function App(): ReactElement {
     <Router>
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/loading' element={<Loading />} />
+        <Route path='/loading-page' element={<Loading />} />
         <Route path='/order/:pageID' element={<Order />} />
         <Route path='/result' element={<Result />} />
       </Routes>

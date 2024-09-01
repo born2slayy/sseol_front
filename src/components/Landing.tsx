@@ -71,7 +71,7 @@ function SelectSection({ onSelect }: { onSelect: (value: string, index: number) 
                         <div className="grid grid-cols-2 gap-4">
                             <SelectBar
                                 label="HQ Location"
-                                options={["United States", "United Kingdom", "Italy", "France", "Germany"]}
+                                options={["United States", "United Kingdom", "Italy", "France", "Germany", "korea"]}
                                 onChange={(value) => onSelect(value, 0)}
                             />
                             <SelectBar
@@ -120,7 +120,7 @@ function Landing(): ReactElement {
             alert("검색어를 입력해주세요.");
             return;
         }
-        navigate('/loading', {
+        navigate('/loading-page', {
             state: {
                 keyword: keyword,
                 location: selectOptions[0],

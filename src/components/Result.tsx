@@ -78,7 +78,7 @@ function SearchBar({ solarOutput }: SearchBarProps): ReactElement {
                 alert("검색어를 입력해주세요.");
                 return;
             }
-            navigate('/loading', {
+            navigate('/loading-page', {
                 state: {
                     keyword: searchState.state,
                     location: "",
