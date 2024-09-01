@@ -29,8 +29,18 @@ function Loading(): ReactElement {
     const location = useLocation();
     
     const inputs: SearchApiProps = location.state!;
-    const {data, loading, error} = useSearchAPI(inputs);
-    // console.log(inputs);
+    const { data, loading, error } = useSearchAPI(inputs);
+
+    useEffect(() => {
+        if (!loading) {
+            if (error) {
+                console.error(error);
+            } else if (data) {
+                navigate('/result', { state: data });
+            }
+        }
+    }, [loading, data, error, navigate]);
+
     if (loading) {
         return (
             <div className="flex items-center justify-center h-screen bg-white">
@@ -41,35 +51,9 @@ function Loading(): ReactElement {
             </div>
         );
     }
-    else if (error) {
-        console.error(error);
-        return (<></>);
-    }
     else {
-        navigate('/result', {state: data});
         return (<></>);
     }
-
-    // useEffect(() => {
-    //     if (location.state) {
-    //         console.log("Received data:", location.state);
-    //     }
-
-    //     const timer = setTimeout(() => {
-    //         navigate('/result', {state: cardDataList});
-    //     }, 3000);
-
-    //     return (() => clearTimeout(timer));
-    // }, [location.state, navigate]);
-
-    // return (
-    //     <div className="flex items-center justify-center h-screen bg-white">
-    //         <div className="flex flex-col items-center justify-center">
-    //             <LoadingSpinner />
-    //             <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
-    //         </div>
-    //     </div>
-    // );
 }
 
 export default Loading;

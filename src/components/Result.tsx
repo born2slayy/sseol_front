@@ -28,12 +28,13 @@ export interface CardProps {
 }
 
 function Card(props: CardProps): ReactElement {
-
+    const cleandLogo = props.brandLogo.replace(/"/g, '');
+    const cleandFirstImg = props.firstProductImg.replace(/"/g, '');
     return (
         <div className="bg-white p-6 rounded-lg shadow-lg">
             <img 
-                src={props.brandLogo} 
-                alt={props.brandLogo} 
+                src={cleandLogo} 
+                alt={cleandLogo} 
                 className="w-full h-32 object-cover rounded-md mb-4" 
             />
             <h3 className="text-xl font-bold text-gray-800 mb-2">{props.brandName}</h3>
@@ -42,8 +43,8 @@ function Card(props: CardProps): ReactElement {
             <p className="text-gray-600 mb-2">Price Range: {props.priceRange}</p>
             <p className="text-gray-600 mb-4">Category: {props.category}</p>
             <img 
-                src={props.brandLogo} 
-                alt={props.brandLogo} 
+                src={cleandFirstImg} 
+                alt={cleandFirstImg} 
                 className="w-full h-80 object-cover rounded-md mb-4" 
             />
             <Link to={`/order/${props.brandName}`} className="w-full">

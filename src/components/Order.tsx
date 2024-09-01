@@ -59,15 +59,16 @@ function ImageSlider({imgURLs}: ImageSliderProps): ReactElement {
         autoplaySpeed: 3000,
     };
 
-    console.log("imgURLs:", imgURLs);
     return (
         <div className="mb-10">
             <Slider {...settings} >
-                {imgURLs.map((url: string, index: number): ReactElement => (
+                {imgURLs.map((url: string, index: number): ReactElement => {
+                    const cleanedUrl = url.replace(/"/g, '');
+                    return (
                     <div key={index}>
-                        <img src={url} alt='slide' className="w-full h-96 object-cover rounded-md" />
-                    </div>
-                ))}
+                        <img src={cleanedUrl} alt='slide' className="w-full h-96 object-cover rounded-md" />
+                    </div>);
+})}
             </Slider>
         </div>
     );
@@ -75,7 +76,7 @@ function ImageSlider({imgURLs}: ImageSliderProps): ReactElement {
 
 function OrderCard(props: OrderCardProps): ReactElement {
     const counterSet: CounterSet = useCounter();
-    console.log("OrderCard:", props);
+
     return (
         <div className="bg-white p-4 rounded-lg shadow-md h-full min-h-[500px]">
             <ImageSlider imgURLs={props.productImgs} />
@@ -109,8 +110,6 @@ function OrderCard(props: OrderCardProps): ReactElement {
 }
 
 function OrderCards({data}: OrderCardsProps): ReactElement {
-    console.log("OrderCards:", data);
-
     return (
         <div className="mt-10 ml-20 mr-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {data.map((data: OrderCardProps, index: number): ReactElement => (
@@ -133,10 +132,6 @@ function Order(): ReactElement {
         return (<></>);
     }
     const dataList: ContractApiResponse = data.data!;
-    console.log('dataList:', dataList);
-    console.log("[0]:", dataList[0]);
-    console.log("[0]:", dataList[1]);
-    console.log("[0]:", dataList[2]);
     // const dataList:ContractApiResponse = orderCardData;
     const goBack = () => {
         navigate('/');
