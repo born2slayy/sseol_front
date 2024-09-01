@@ -1,6 +1,6 @@
 import { ReactElement, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { SearchApiProps } from "../api/useSearchAPI";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import useSearchAPI, { SearchApiProps } from "../api/useSearchAPI";
 
 //design: https://v0.dev/t/OoUVupeFpge
 
@@ -26,23 +26,45 @@ function LoadingSpinner(): ReactElement {
 
 function Loading(): ReactElement {
     const navigate = useNavigate();
+    const location = useLocation();
+    const inputs: SearchApiProps = location.state!;
+    const {data, loading, error} = useSearchAPI(inputs);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            navigate('/result');
-        }, 3000);
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center h-screen bg-white">
+              <div className="flex flex-col items-center justify-center">
+                <LoadingSpinner />
+                <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
+              </div>
+            </div>
+        );
+    }
+    else if (error) {
+        console.error(error);
+        return (<></>);
+    }
+    else {
+        navigate('/result', {state: data});
+        return (<></>);
+    }
 
-        return (() => clearTimeout(timer));
-    }, [navigate]);
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         navigate('/result');
+    //     }, 3000);
 
-    return (
-        <div className="flex items-center justify-center h-screen bg-white">
-          <div className="flex flex-col items-center justify-center">
-            <LoadingSpinner />
-            <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
-          </div>
-        </div>
-    );
+    //     return (() => clearTimeout(timer));
+    // }, [navigate]);
+
+    // return (
+    //     <div className="flex items-center justify-center h-screen bg-white">
+    //       <div className="flex flex-col items-center justify-center">
+    //         <LoadingSpinner />
+    //         <p className="text-gray-600 text-2xl mt-4">AI Agent is searching...</p>
+    //       </div>
+    //     </div>
+    // );
 }
 
 export default Loading;
