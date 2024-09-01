@@ -83,9 +83,9 @@ function OrderCard(props: OrderCardProps): ReactElement {
             <h3 className="text-xl font-bold text-center mt-4">{props.productName}</h3>
             <p className="text-center text-gray-500 mb-4">{props.productCode}</p>
             <div className="flex justify-center space-x-2 mb-4">
-                <button className="w-4 h-4 bg-pink-100 focus:outline-none" />
-                <button className="w-4 h-4 bg-pink-200 focus:outline-none" />
-                <button className="w-4 h-4 bg-pink-300 focus:outline-none" />
+                <button className="w-4 h-4 border bg-black focus:outline-none" />
+                <button className="w-4 h-4 border bg-white focus:outline-none" />
+                <button className="w-4 h-4 border bg-gray-500 focus:outline-none" />
             </div>
             <div className="text-center mb-4">
                 <div className="flex justify-between text-gray-600">
