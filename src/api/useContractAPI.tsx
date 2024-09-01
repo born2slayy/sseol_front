@@ -2,11 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 
-interface ContractApiProps {
+export interface ContractApiProps {
     brandName: string,
 }
 
-interface ContractApiResponse {
+export interface ContractApiResponse {
     items: {
         productName: string,
         productCode: string,
@@ -16,7 +16,7 @@ interface ContractApiResponse {
     }[],
 }
 
-interface ContractApiOut {
+export interface ContractApiOut {
     loading: boolean,
     error: string | null;
     data: ContractApiResponse | null,
@@ -48,3 +48,5 @@ function useContractAPI(props: ContractApiProps): ContractApiOut {
     return {data, loading, error};
 
 }
+
+export default useContractAPI;

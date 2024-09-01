@@ -13,11 +13,13 @@ export interface SearchApiResponse {
     brands: {
         brandName: string,
         brandLogo: string, //url
+        url2: string, //url
         location: string,
         revenue: string,
         priceRange: string,
         category: string,
     }[],
+    solarOutput: string,
 }
 
 export interface SearchApiOut {
