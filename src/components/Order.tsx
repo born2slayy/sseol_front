@@ -86,11 +86,11 @@ function OrderCard(props: OrderCardProps): ReactElement {
                 <div className="flex justify-between text-gray-600">
                     <div className="flex flex-col items-center">
                         <label className="mb-1 font-medium">Wholesale</label>
-                        <span className="text-lg font-semibold">{props.wholesalePrice}</span>
+                        <span className="text-lg font-semibold">{props.wholesalePrice.toFixed(2)}</span>
                     </div>
                     <div className="flex flex-col items-center">
                         <label className="mb-1 font-medium">Suggested Retail</label>
-                        <span className="text-lg font-semibold">{props.suggestedRetail}</span>
+                        <span className="text-lg font-semibold">{props.suggestedRetail.toFixed(2)}</span>
                     </div>
                 </div>
             </div>
