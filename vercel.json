@@ -1,7 +1,34 @@
 {
+  "rewrites": [
+    {
+      "source": "/search",
+      "destination": "http://43.202.147.65:8000/search"
+    },
+    {
+      "source": "/brands/contract",
+      "destination": "http://43.202.147.65:8000/brands/contract"
+    }
+  ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/search",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type"
+        }
+      ]
+    },
+    {
+      "source": "/brands/contract",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
