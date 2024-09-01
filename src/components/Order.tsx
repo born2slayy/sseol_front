@@ -117,18 +117,18 @@ function OrderCards(props: ContractApiResponse): ReactElement {
 function Order(): ReactElement {
     const navigate = useNavigate();
     const {pageID} = useParams();
-    // const data:ContractApiOut = useContractAPI({brandName: pageID!});
+    const data:ContractApiOut = useContractAPI({brandName: pageID!});
     
-    // if (data.loading) {
-    //     return (<></>);
-    // }
-    // else if (data.error) {
-    //     console.error(data.error);
-    //     return (<></>);
-    // }
-    // const dataList: ContractApiResponse = data.data!;
+    if (data.loading) {
+        return (<></>);
+    }
+    else if (data.error) {
+        console.error(data.error);
+        return (<></>);
+    }
+    const dataList: ContractApiResponse = data.data!;
     
-    const dataList:ContractApiResponse = orderCardData;
+    // const dataList:ContractApiResponse = orderCardData;
     const goBack = () => {
         navigate('/');
     };

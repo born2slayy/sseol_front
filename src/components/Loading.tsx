@@ -31,7 +31,7 @@ function Loading(): ReactElement {
     
     const inputs: SearchApiProps = location.state!;
     const {data, loading, error} = useSearchAPI(inputs);
-    console.log(inputs);
+    // console.log(inputs);
     if (loading) {
         return (
             <div className="flex items-center justify-center h-screen bg-white">
