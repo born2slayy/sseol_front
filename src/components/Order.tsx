@@ -1,17 +1,19 @@
 import { ReactElement } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Slider from "react-slick";
 import useCounter, { CounterSet } from "../tools/useCounter";
 import { FaShoppingCart } from 'react-icons/fa';
+import useContractAPI, { ContractApiOut, ContractApiResponse } from "../api/useContractAPI";
+import { orderCardData } from "../tools/testData";
 
 //design: https://v0.dev/t/alUG20X5HZM
 
-interface OrderCardProps {
-    imgURLs: string[],
-    name: string,
-    code: string,
-    wholeSale: string,
-    suggestedRetail: string,
+export interface OrderCardProps {
+    productImages: string[],
+    productName: string,
+    productCode: string,
+    wholesalePrice: number,
+    suggestedRetail: number,
 }
 
 interface CounterProps {
@@ -72,9 +74,9 @@ function OrderCard(props: OrderCardProps): ReactElement {
 
     return (
         <div className="bg-white p-4 rounded-lg shadow-md h-full min-h-[500px]">
-            <ImageSlider imgURLs={props.imgURLs} />
-            <h3 className="text-xl font-bold text-center mt-4">{props.name}</h3>
-            <p className="text-center text-gray-500 mb-4">{props.code}</p>
+            <ImageSlider imgURLs={props.productImages} />
+            <h3 className="text-xl font-bold text-center mt-4">{props.productName}</h3>
+            <p className="text-center text-gray-500 mb-4">{props.productCode}</p>
             <div className="flex justify-center space-x-2 mb-4">
                 <button className="w-8 h-8 bg-gray-200 rounded-full focus:outline-none" />
                 <button className="w-8 h-8 bg-gray-200 rounded-full focus:outline-none" />
@@ -84,7 +86,7 @@ function OrderCard(props: OrderCardProps): ReactElement {
                 <div className="flex justify-between text-gray-600">
                     <div className="flex flex-col items-center">
                         <label className="mb-1 font-medium">Wholesale</label>
-                        <span className="text-lg font-semibold">{props.wholeSale}</span>
+                        <span className="text-lg font-semibold">{props.wholesalePrice}</span>
                     </div>
                     <div className="flex flex-col items-center">
                         <label className="mb-1 font-medium">Suggested Retail</label>
@@ -102,10 +104,10 @@ function OrderCard(props: OrderCardProps): ReactElement {
     );
 }
 
-function OrderCards(): ReactElement {
+function OrderCards(props: ContractApiResponse): ReactElement {
     return (
         <div className="mt-10 ml-20 mr-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {orderCardData.map((data: OrderCardProps, index: number): ReactElement => (
+            {props.items.map((data: OrderCardProps, index: number): ReactElement => (
                 <OrderCard key={index} {...data} />
             ))}
         </div>
@@ -113,16 +115,27 @@ function OrderCards(): ReactElement {
 }
 
 function Order(): ReactElement {
-    const { pageID } = useParams();
     const navigate = useNavigate();
-
+    const {pageID} = useParams();
+    // const data:ContractApiOut = useContractAPI({brandName: pageID!});
+    
+    // if (data.loading) {
+    //     return (<></>);
+    // }
+    // else if (data.error) {
+    //     console.error(data.error);
+    //     return (<></>);
+    // }
+    // const dataList: ContractApiResponse = data.data!;
+    
+    const dataList:ContractApiResponse = orderCardData;
     const goBack = () => {
         navigate('/');
     };
 
     return (
         <div className="flex flex-col items-center">
-            <OrderCards />
+            <OrderCards {...dataList}/>
             <button 
                 onClick={goBack} 
                 className="w-1/2 mt-8 mb-8 bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800 transition duration-300"
@@ -132,86 +145,5 @@ function Order(): ReactElement {
         </div>
     );
 }
-
-const orderCardData: OrderCardProps[] = [
-    {
-        imgURLs: [
-            "https://via.placeholder.com/600x400/ff7f7f/333333",
-            "https://via.placeholder.com/600x400/ffbf7f/333333",
-            "https://via.placeholder.com/600x400/ffff7f/333333",
-        ],
-        name: "Dresses",
-        code: "R23CD02",
-        wholeSale: "150.00",
-        suggestedRetail: "450.00",
-    },
-    {
-        imgURLs: [
-            "https://via.placeholder.com/600x400/7f7fff/333333",
-            "https://via.placeholder.com/600x400/7fbfff/333333",
-            "https://via.placeholder.com/600x400/7fffff/333333",
-        ],
-        name: "Tops",
-        code: "R23CT09",
-        wholeSale: "65.00",
-        suggestedRetail: "195.00",
-    },
-    {
-        imgURLs: [
-            "https://via.placeholder.com/600x400/7fff7f/333333",
-            "https://via.placeholder.com/600x400/bfff7f/333333",
-            "https://via.placeholder.com/600x400/ffff7f/333333",
-        ],
-        name: "Skirts",
-        code: "R23CS08",
-        wholeSale: "65.00",
-        suggestedRetail: "195.00",
-    },
-    {
-        imgURLs: [
-            "https://via.placeholder.com/600x400/ff7fff/333333",
-            "https://via.placeholder.com/600x400/ff7f7f/333333",
-            "https://via.placeholder.com/600x400/ffbf7f/333333",
-        ],
-        name: "Dresses",
-        code: "R23CD05",
-        wholeSale: "140.00",
-        suggestedRetail: "420.00",
-    },
-    {
-        imgURLs: [
-            "https://via.placeholder.com/600x400/ff7fff/333333",
-            "https://via.placeholder.com/600x400/ff7f7f/333333",
-            "https://via.placeholder.com/600x400/ffbf7f/333333",
-        ],
-        name: "Dresses",
-        code: "R23CD05",
-        wholeSale: "140.00",
-        suggestedRetail: "420.00",
-    },
-    {
-        imgURLs: [
-            "https://via.placeholder.com/600x400/ff7fff/333333",
-            "https://via.placeholder.com/600x400/ff7f7f/333333",
-            "https://via.placeholder.com/600x400/ffbf7f/333333",
-        ],
-        name: "Dresses",
-        code: "R23CD05",
-        wholeSale: "140.00",
-        suggestedRetail: "420.00",
-    },
-    {
-        imgURLs: [
-            "https://via.placeholder.com/600x400/ff7fff/333333",
-            "https://via.placeholder.com/600x400/ff7f7f/333333",
-            "https://via.placeholder.com/600x400/ffbf7f/333333",
-        ],
-        name: "Dresses",
-        code: "R23CD05",
-        wholeSale: "140.00",
-        suggestedRetail: "420.00",
-    },
-    
-];
 
 export default Order;
