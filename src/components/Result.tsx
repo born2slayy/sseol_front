@@ -87,7 +87,7 @@ function Result(): ReactElement {
     const searchState: InputState = useInput("");
 
     return (
-        <div className="p-8">
+        <div className="mt-10 mb-10 ml-20 mr-20 p-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-6">Fashion Brand Search</h1>
             <SearchBar searchState={searchState} />
             <Cards search={searchState.state}/>
